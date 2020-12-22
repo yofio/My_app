@@ -1,0 +1,17 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-btn {
+  background-color: #72c7e6;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #49add1;
+    color: #fff;
+    transition: 0.5s;
+  }
+}

@@ -1,34 +1,8 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">家電比較.com</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
- 
 <!-- Page Content -->
-<div class="container">
- 
+<div class="container pt-5">
+  <p class="notice pt-1"><%= notice %></p>
+  <p class="alert pt-1"><%= alert %></p>
   <!-- Jumbotron Header -->
   <header class="jumbotron my-4">
     <h1 class="display-3">家電比較.comへようこそ！</h1>
@@ -37,66 +11,29 @@
  
   <!-- Page Features -->
   <div class="row text-center">
- 
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <%# <img class="card-img-top" src="http://placehold.it/500x325" alt=""> %>
-        <%= image_tag 'onepeace_robin_01.jpg', class: "card-img-top", size: '253x164'%>
-        <div class="card-body">
-          <h4 class="card-title">item1</h4>
-          <h4>vs
-          <h4 class="card-title">item2</h4>
-          <p class="card-text">item1とitem2を比較しました</p>
+
+    <% @items.each_slice(4) do |items| %>
+      <% items.each do |item| %>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <%= image_tag item.img.url, class: "card-img-top", size: '253x164'%>
+            <div class="card-body">
+              <h4 class="card-title"><%= item.item1 %></h4>
+              <h4>vs
+              <h4 class="card-title"><%= item.item2 %></h4>
+              <p class="card-text"><%= item.body1 %></p>
+            </div>
+            <div class="card-footer">
+              <%# <a href="#" class="btn btn-primary">Find Out More!</a> %>
+              <%= link_to "詳細", item_path(item.id), class: "btn btn-primary" %>
+            </div>
+          </div>
         </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Find Out More!</a>
-        </div>
-      </div>
-    </div>
- 
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Find Out More!</a>
-        </div>
-      </div>
-    </div>
- 
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Find Out More!</a>
-        </div>
-      </div>
-    </div>
- 
-    <div class="col-lg-3 col-md-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-        <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Find Out More!</a>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
  
   </div>
   <!-- /.row -->
  
 </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>

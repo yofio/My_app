@@ -1,0 +1,176 @@
+<!-- Page Content -->
+<div class="container pt-5">
+ 
+  <!-- Page Features -->
+  <div class="row text-center pt-5">
+ 
+    <div class="col-lg-8 col-md-6 mb-4 mx-auto">
+      <div class="card h-100">
+        <%= image_tag @item.img.url, class: "img-top mx-auto", size: '250x250'%>
+        <div class="card-body">
+          <div class="items d-flex">
+            <div class="item1 col-lg-6">
+              <%= @item.item1 %>
+
+              <h4 class="text-left">項目：<%= @item.feature1 %> </h4>
+              <div class="d-flex mb-3">
+                <div class="text-left ">評価：<%= @item.rate1 %>点 : </div>
+                <!--星評価-->
+                <div id="star-rate-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate1 %>',
+                  });
+                  </script> 
+              </div> 
+              <h4 class="text-left mb-3">項目：<%= @item.feature2 %> </h4>
+              <div class="d-flex">
+                <div class="text-left">評価：<%= @item.rate2 %>点 </div>
+                <div id="star-rate2-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate2-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate2 %>',
+                  });
+                  </script>  
+                </div>
+              
+
+              <h4 class="text-left mb-3">項目：<%= @item.feature3 %> </h4>
+              <div class="d-flex">
+                <div class="text-left">評価：<%= @item.rate3 %>点 </div>
+                <div id="star-rate3-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate3-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate3 %>',
+                  });
+                  </script>  
+                </div>
+            </div>
+
+            
+          
+            <div class="item2 col-lg-6">
+              <%= @item.item2 %>
+
+              <h4 class="text-left mb-3">項目：<%= @item.feature4 %> </h4>
+              <div class="d-flex">
+                <div class="text-left">評価：<%= @item.rate4 %>点 </div>
+                <div id="star-rate4-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate4-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate4 %>',
+                  });
+                  </script>  
+                </div>
+
+              <h4 class="text-left mb-3">項目：<%= @item.feature5 %> </h4>
+              <div class="d-flex">
+                <div class="text-left">評価：<%= @item.rate5 %>点 </div>
+                <div id="star-rate5-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate5-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate5 %>',
+                  });
+                  </script>  
+                </div>
+
+              <h4 class="text-left mb-3">項目：<%= @item.feature6 %> </h4>
+              <div class="d-flex">
+                <div class="text-left">評価：<%= @item.rate6 %>点 </div>
+                <div id="star-rate6-<%= @item.id %>" class="d-flex align-items-center ml-1"></div>
+                  <script>
+                  $('#star-rate6-<%= @item.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @item.rate6 %>',
+                  });
+                  </script>  
+                </div>
+
+
+
+            </div>
+          </div>
+          <% if @item.favorited_by?(current_user) %>
+            <p>
+              <%= link_to item_favorites_path(@item), method: :delete do %>
+                ♥<%= @item.favorites.count %> いいね
+              <% end %>
+            </p>
+            <% else %>
+            <p>
+              <%= link_to item_favorites_path(@item), method: :post do %>
+                ♡<%= @item.favorites.count %> いいね
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <h4 class="primary">コメント欄</h4>
+        </div>
+        <div class="comments">
+        <p>コメント件数：<%= @item.comments.count %></p>
+        <% @item.comments.each do |post_comment| %>
+          <%# <p><%= image_tag('sample-author1.jpg') %></p>
+          <%= post_comment.user.name %>
+          <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+          <% if post_comment.user == current_user %>
+          <div class="comment-delete">
+            <%= link_to "削除", item_comment_path(post_comment.item, post_comment), method: :delete %>
+          </div>
+          <% end %>
+        <% end %>
+        </div>
+        <div class="new-comment">
+        <%= form_with(model:[@item, @comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+          <%= f.submit "コメントを書き込む", class: "comment-btn d-block mx-auto" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+  
+  
+    
+  </div>
+  <!-- /.row -->
+ 
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
