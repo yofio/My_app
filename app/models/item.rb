@@ -6,6 +6,10 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :categories
 
+  def self.micropost_serach(search)
+    Item.where('item1 LIKE ? OR item2 LIKE ?', "%#{search}%", "%#{search}%")
+  end
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

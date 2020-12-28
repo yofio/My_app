@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
   end
 
   def new
@@ -19,6 +20,15 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @category_id = @item.category_id
     @category_name = Category.find(@category_id)
+  end
+
+  def search
+    # if params[:item1].present?
+    #   @items = Item.where(['item1 LIKE ? OR item2 LIKE ?', "%#{params[:item1]}%", "%#{params[:item2]}%"])
+    # else
+    #   @items = Item.none
+    # end
+    @items =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
   end
 
   private
