@@ -1,6 +1,5 @@
-class Admin::UsersController < ApplicationController
-  before_action :if_not_admin
-
+class CategoriesController < ApplicationController
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
     @category = Category.new
@@ -10,7 +9,7 @@ class Admin::UsersController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to admin_users_path
+      redirect_to categories_path
     else
       @categories = Category.all
       render 'index'
@@ -22,7 +21,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to admin_users_path
+      redirect_to categories_path
     else
       render 'edit'
     end
@@ -34,15 +33,12 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-  def if_not_admin
-    redirect_to root_path unless current_user.admin?
-  end
 
-  def set_category
-    @category = Category.find(params[:id])
-  end
+    def set_category
+      @category = Category.find(params[:id])
+    end
 
-  def category_params
-    params.require(:category).permit(:name)
-  end
+    def category_params
+      params.require(:category).permit(:name)
+    end
 end
