@@ -17,10 +17,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @comment = Comment.new
+    @category_id = @item.category_id
+    @category_name = Category.find(@category_id)
   end
 
   private
   def item_params
-  params.require(:item).permit(:title, :item1, :item2, :body1, :body2, :img, :user_id, :feature1, :feature2, :feature3, :feature4, :feature5, :feature6, :rate1, :rate2, :rate3, :rate4, :rate5, :rate6)
+  params.require(:item).permit(:title, :item1, :item2, :body1, :body2, :img, :user_id, :feature1, :feature2, :feature3, :feature4, :feature5, :feature6, :rate1, :rate2, :rate3, :rate4, :rate5, :rate6, :category_id)
   end
 end

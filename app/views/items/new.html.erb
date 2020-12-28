@@ -10,7 +10,10 @@
       
 
       <%= f.label :画像 %></br>
-      <%= f.file_field :img, class: "image" %>
+      <%= f.file_field :img, class: "image" %></br>
+
+      <%= f.label :category_id, 'カテゴリー' %></br>
+      <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' }, class: 'form-control' %></br>
 
     <div class="row pt-5">
       <div class="item1">

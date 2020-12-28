@@ -1,1 +1,31 @@
-nnnnnnnnnn
+<div class="row mt-5">
+  <div class="col-lg-5 mt-5 m">
+    <%= form_with model: @category, url: admin_users_path ,local:true do |f| %>
+      <%= f.label :name, "カテゴリー名" %></br>
+      <%= f.text_field :name, class: "image" %></br>
+      <%= f.submit "追加" %></br>
+    <% end %>
+  </div>
+
+  <div class="col-lg-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            |  カテゴリー名
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |categorys| %>
+          <tr>
+            <td>
+              <%= categorys.name %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

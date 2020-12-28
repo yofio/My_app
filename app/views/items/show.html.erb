@@ -8,6 +8,7 @@
       <div class="card h-100">
         <%= image_tag @item.img.url, class: "img-top mx-auto", size: '250x250'%>
         <div class="card-body">
+          <h5>カテゴリー：<%=  @category_name.name %></h5>
           <div class="items d-flex">
             <div class="item1 col-lg-6">
               <%= @item.item1 %>
