@@ -68,3 +68,8 @@ gem "refile-mini_magick"
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
 gem 'devise'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
