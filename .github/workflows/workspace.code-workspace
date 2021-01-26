@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": ".github",
+		"path": "../../../../Downloads/.github"
+	},
+	{
+		"name": "My_app",
+		"path": "../.."
+	}
+],
+  "settings": {}
+}
