@@ -20,7 +20,7 @@
       <% items.each do |item| %>
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
-            <%= image_tag item.img.url, class: "card-img-top", size: '253x164'%>
+            <%= image_tag asset_path(item.img.url), class: "card-img-top", size: '253x164'%>
             <div class="card-body">
               <h4 class="card-title"><%= item.item1 %></h4>
               <h4>vs
