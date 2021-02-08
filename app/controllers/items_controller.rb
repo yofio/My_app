@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
     @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
     @categorys = Category.all
+    # @average = @items.group(:rate1, :rate2, :rate3).average
   end
 
   def new
