@@ -51,12 +51,12 @@
                       <div class="reportRevCont">
                         <div class="reportRevItem">
                           <p class="reportRevItem_name"><%= item.item1%></p>
-                          <span class="rating r5">満足度：<%= ((item.rate1+item.rate2 + item.rate3)/3).round(1)%>
+                          <span class="rating r5"><%= item.feature1 %>：<%= ((item.rate1+item.rate2 + item.rate3)/3).round(1)%>
                         </div>
 
                         <div class="reportRevItem">
                           <p class="reportRevItem_name"><%= item.item2%></p>
-                          <span class="rating r5">満足度：<%= ((item.rate4+item.rate5 + item.rate6)/3).round(1)%>
+                          <span class="rating r5"><%= item.feature4 %>：<%= ((item.rate4+item.rate5 + item.rate6)/3).round(1)%>
                         </div>
                       </div>
                     <% end %>
