@@ -6,14 +6,23 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def new
+    @item = Item.new
+  end
+  
+
   def create
-    @category = Category.new(category_params)
-    if @category.save
-      redirect_to categories_path
-    else
-      @categories = Category.all
-      render 'index'
-    end
+    @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    @item.save
+    redirect_to item_path(@item.id)
+  end
+
+  def show
+    categoy_item = Category.find(params[:id])
+    @items = Item.where(category_id: categoy_item).order(created_at: :desc).page(params[:page]).per(20)
+    @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
+    @categorys = Category.all
   end
 
   def edit

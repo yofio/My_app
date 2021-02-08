@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all.order(created_at: :desc) 
+    @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
     @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
+    @categorys = Category.all
   end
 
   def new

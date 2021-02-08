@@ -69,6 +69,8 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
 gem 'devise'
 
+gem 'kaminari'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

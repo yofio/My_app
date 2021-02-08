@@ -9,32 +9,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color: #f2f2f2">
     <header class="main_menu">
       <div class="container">
         <div class="row align-items-center">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
             <div class="container">
               <%# <a class="navbar-brand" href="#">家電比較.com</a> %>
               <%= link_to "家電比較.com", root_path, class: "navbar-brand" %> 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+
               <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mr-auto">
                   <% if user_signed_in? %>
                     <li class="nav-item active">
                       <%= link_to "Post", new_item_path, class: "nav-link" %> 
                     </li>
                     <li class="nav-item">
-                      <%= link_to "一覧", root_path, class: "nav-link" %>
+                      <%= link_to "クチコミ", root_path, class: "nav-link" %>
                     </li>
                     <li class="nav-item">
                       <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %>
                     </li>
                     <% else %>
                     <li class="nav-item">
-                      <%= link_to "一覧", root_path, class: "nav-link" %>
+                      <%= link_to "クチコミ", root_path, class: "nav-link" %>
                     </li>
                     <li class="nav-item">
                     <li class="nav-item">
@@ -45,7 +46,12 @@
                     </li>
                   <% end %>
                 </ul>
+                <div class="nav-link dropdown-toggle" style="color: #4fd2c2;">
+                  <%= current_user.name %>
+                </div>
               </div>
+
+              
             </div>
           </nav>
         </div>
@@ -54,11 +60,43 @@
     
     <%= yield %>
 
-    <!-- Footer -->
-    <%# <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="container">
+          <div class="row">
+            <%# <div class="col-md-3 col-sm-4 col-md-push-3">
+              <ul class="footer-list">
+              <li class="footer-list__item"><a href="/">トップページ</a></li>
+              <li class="footer-list__item"><a href="/policy">利用基準</a></li>
+              <li class="footer-list__item"><a href="/privacypolicy">プライバシーポリシー</a></li>
+              <li class="footer-list__item"><a href="/contacts">お問い合わせ</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-4 col-md-push-3">
+              <ul class="footer-list">
+              <li class="footer-list__item"><a href="/rankings">人気アイテムランキングを見る</a></li>
+              <li class="footer-list__item"><a href="/products">アイテム一覧を見る</a></li>
+              <li class="footer-list__item"><a href="/products/new">アイテムを登録する</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-4 col-md-push-3">
+              <ul class="footer-list">
+              <li class="footer-list__item"><a href="/users">ユーザー一覧を見る</a></li>
+              </ul>
+            </div> %>
+            <div class="m-auto">
+              <div class="footer-logo"><a href="/">家電比較.com</a></div>
+              <p>
+              <small>© 2019-2021. All Rights Reserved.</small>
+              </p>
+              <p class="social-icons">
+              <a href="">Share on Twitter</a>
+              <a href="">Share on Facebook</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer> %>
+    </footer>
   </body>
 </html>
