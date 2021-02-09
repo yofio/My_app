@@ -1,19 +1,10 @@
-
-<!-- Page Content -->
 <div class="container pt-5">
   <p class="notice pt-1"><%= notice %></p>
   <p class="alert pt-1"><%= alert %></p>
-  <!-- Jumbotron Header -->
   <%= form_with url: search_items_path, class: 'search_form', method: :get, local:true do |f| %>
     <%= f.text_field :search,class: 'field_search',value: params[:search], placeholder: "アイテム名を入力"%>
     <%= f.submit '検索', class: "btn_search btn btn-success" %>
   <% end %>
-  <%# <header class="jumbotron my-4">
-    <h1 class="display-3">家電比較.comへようこそ！</h1>
-    <p class="lead">このサイトは家電を購入するときに役立ちます。投稿を見て気になる家電同士を比較してみましょう！</p>
-  </header> %>
- 
-  <!-- Page Features -->
   <div class="row content_main">
     <div class="left_box">
       <div class="left_box_title">
@@ -39,7 +30,9 @@
                 <div class="userReportItem" style="display: flex;">
                   <div class="reportImg">
                     <a href="">
-                      <span class="reportImgBox"><span class="linkWrap"><img src="https://img1.kakaku.k-img.com/jpeg_gif/bbs/boy1.gif" onerror="this.src='https://img1.kakaku.k-img.com/images/productimage/m/nowprinting.gif';this.onerror=null;" onload="resizeImage(this,80,60)" width="80" height="60" alt="OLED55C9PJA [55インチ]"></span></span>
+                      <span class="reportImgBox"><span class="linkWrap">
+                      <%= image_tag asset_path('boy1.jpg'), size: '80x60'%>
+                      </span>
                       <span class="reportImgItem"><%= item.user.name %></span>
                     </a>
                   </div>
@@ -69,40 +62,10 @@
             <% end %>
           </ul>
         <% end %> 
-
         <%= paginate @items %>
       </div>
     </div>
-
-
-
-
-
-
-
-    <%# <% @items.each_slice(2) do |items| %>
-      <%# <% items.each do |item| %>
-        <%# <div class="col-lg-3 col-md-6 mb-4"> %>
-          <%# <div class="card h-100"> %>
-            <%# <%= image_tag asset_path(item.img.url), class: "card-img-top", size: '253x164' %>
-            <%# <div class="card-body"> %>
-              <%# <h4 class="card-title"><%= item.item1 %>
-              <%# <h4>vs</h4> %>
-              <%# <h4 class="card-title"><%= item.item2 %>
-              <%# <p class="card-text"><%= item.body1 %>
-            <%# </div> %>
-            <%# <div class="card-footer"> %>
-              <%# <a href="#" class="btn btn-primary">Find Out More!</a> %>
-              <%# <%= link_to "詳細", item_path(item.id), class: "btn btn-primary" %>
-            <%# </div> %>
-          <%# </div> %>
-        <%# </div> %>
-      <%# <% end  %>
-    <%# <% end  %>
- 
-  </div>
-  <!-- /.row -->
- 
+  </div> 
 </div>
 
 
