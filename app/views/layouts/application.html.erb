@@ -4,7 +4,6 @@
     <title>MyApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,7 +14,6 @@
         <div class="row align-items-center">
           <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" >
             <div class="container">
-              <%# <a class="navbar-brand" href="#">家電比較.com</a> %>
               <%= link_to "家電比較.com", root_path, class: "navbar-brand" %> 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,11 +45,9 @@
                   <% end %>
                 </ul>
                 <div class="nav-link dropdown-toggle" style="color: #4fd2c2;">
-                  <%= current_user.name %>
+                  <%#¥ <%= current_user.name %> 
                 </div>
               </div>
-
-              
             </div>
           </nav>
         </div>
@@ -64,26 +60,6 @@
       <div class="footer-content">
         <div class="container">
           <div class="row">
-            <%# <div class="col-md-3 col-sm-4 col-md-push-3">
-              <ul class="footer-list">
-              <li class="footer-list__item"><a href="/">トップページ</a></li>
-              <li class="footer-list__item"><a href="/policy">利用基準</a></li>
-              <li class="footer-list__item"><a href="/privacypolicy">プライバシーポリシー</a></li>
-              <li class="footer-list__item"><a href="/contacts">お問い合わせ</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-4 col-md-push-3">
-              <ul class="footer-list">
-              <li class="footer-list__item"><a href="/rankings">人気アイテムランキングを見る</a></li>
-              <li class="footer-list__item"><a href="/products">アイテム一覧を見る</a></li>
-              <li class="footer-list__item"><a href="/products/new">アイテムを登録する</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3 col-sm-4 col-md-push-3">
-              <ul class="footer-list">
-              <li class="footer-list__item"><a href="/users">ユーザー一覧を見る</a></li>
-              </ul>
-            </div> %>
             <div class="m-auto">
               <div class="footer-logo"><a href="/">家電比較.com</a></div>
               <p>
