@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
-    @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
+    @microposts = params[:search].present??Item.micropost_serach(params[:search]) : Item.none
     @categorys = Category.all
   end
 
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     # @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
     # @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
     @categorys = Category.all
-    @items =  params[:search].present? ? Item.micropost_serach(params[:search]).page(params[:page]).per(10) : Item.none
+    @items =  params[:search].present??Item.micropost_serach(params[:search]).page(params[:page]).per(10) : Item.none
   end
 
   private
