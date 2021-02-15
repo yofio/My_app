@@ -168,18 +168,8 @@
             <p class="item_body">
               <%= @item.body1%>
             </p>
+          </div>
         </div>
-        <div class="card-footer">
-          <h4 class="primary">コメント欄</h4>
-        </div>
-        <div class="comments">
-        <p>コメント件数：<%= @item.comments.count %></p>
-        <% @item.comments.each do |post_comment| %>
-          <%# <p><%= image_tag('sample-author1.jpg') %></p>
-          <%= post_comment.user.name %>
-          <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-          <% if post_comment.user == current_user %>
-          <div class="comment-delete">
       </div>
     </div>
 
