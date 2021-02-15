@@ -1,0 +1,127 @@
+.container {
+  .show_box {
+    background-color: #ffffff;
+    width: 720px;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+
+    .profile {
+      width: 100%;
+      margin-bottom: 15px;
+
+      .user_info {
+        display: flex;
+
+        .user_name {
+          margin: auto 0.4em;
+
+          .user_name_emphasis {
+            color: #c00;
+            font-weight: bold;
+            margin-right: 3px;
+          }
+
+          span {
+            display: inline;
+          }
+        }
+
+        .user_item_amount {
+          margin: auto 0.4em;
+          font-size: 85%;
+          color: rgb(92, 86, 86);
+        }
+      }
+    }
+
+    .post {
+      padding-top: 5px;
+      margin-bottom: 15px;
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+      width: 100%;
+
+      .post_containers {
+        .post_container {
+          .post_item {
+            border: 3px solid #d6e3e9;
+            border-radius: 6px;
+            padding-top: 0px;
+            width: 235px;
+            margin-bottom: 10px;
+
+            .post_item_name {
+              text-align: center;
+              font-weight: bold;
+              border-bottom: 1px dotted #ccc;
+              color: #0000dd;
+            }
+            .item_bod {
+              line-height: 150%;
+              margin-top: 10px;
+              padding: 0 4px;
+            }
+          }
+          .post_item_container {
+            .item_title {
+              border-bottom: 1px dotted #999;
+              font-size: 100%;
+              font-weight: bold;
+              margin-top: 3px;
+              padding-bottom: 7px;
+              span {
+                border-left: 5px solid #001789;
+                padding: 3px 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .comments_box {
+      background-color: #b9f0fa17;
+      border: 3px solid #d6e3e9;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 5px 5px 0px 5px;
+    }
+    .comment-delete {
+      margin-bottom: 5px;
+    }
+    .new-comment {
+      width: 100%;
+      .comment_form {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 92%;
+  line-height: 140%;
+  width: 230px;
+  tr {
+    border-bottom: 1px dotted #ccc;
+    th {
+      border-right: none;
+      padding: 7px 8px;
+      text-align: left;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    td {
+      border-right: none;
+      font-family: Verdana;
+      font-weight: bold;
+      padding: 7px 8px 7px 0;
+      text-align: right;
+    }
+  }
+}
