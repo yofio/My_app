@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_signed_in, except: [:index, :search]
+  before_action :authenticate_user!, except: [:index, :search]
 
   def index
     @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
