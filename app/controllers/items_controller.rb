@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :move_to_signed_in, except: [:index, :search]
+
   def index
     @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
     @microposts = params[:search].present??Item.micropost_serach(params[:search]) : Item.none
@@ -24,19 +26,21 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # if params[:item1].present?
-    #   @items = Item.where(['item1 LIKE ? OR item2 LIKE ?', "%#{params[:item1]}%", "%#{params[:item2]}%"])
-    # else
-    #   @items = Item.none
-    # end
-    # @items = Item.all.order(created_at: :desc).page(params[:page]).per(10)
-    # @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
     @categorys = Category.all
     @items =  params[:search].present??Item.micropost_serach(params[:search]).page(params[:page]).per(10) : Item.none
   end
 
   private
+
   def item_params
   params.require(:item).permit(:title, :item1, :item2, :body1, :body2, :img, :user_id, :feature1, :feature2, :feature3, :feature4, :feature5, :feature6, :rate1, :rate2, :rate3, :rate4, :rate5, :rate6, :category_id)
   end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to new_user_session_path
+    end
+  end
+
 end
