@@ -1,150 +1,314 @@
-
 <div class="container pt-5 ">
   <%= form_with model: @item, local:true do |f| %>
-    
-      <h4 class="pt-5">Title</h4>
-      <%= f.text_field :title %>
-
-      <h4>Body</h4>
-      <%= f.text_area :body1 %></br>
-      
-
-      <%= f.label :画像 %></br>
-      <%= f.file_field :img, class: "image" %></br>
-
-      <%= f.label :category_id, 'カテゴリー' %></br>
-      <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' }, class: 'form-control' %></br>
-
-    <div class="row pt-5">
-      <div class="item1">
-        <div class="col-lg-6">
-
-          <h4 class="pt-1">商品名</h4></br>
-          <%= f.text_field :item1 %>
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature1 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star">
-            <%= f.label :rate1,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate1, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate1]',
-            half: true,
-          });
-          </script>  
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature2 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star2">
-            <%= f.label :rate2,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate2, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star2').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate2]',
-            half: true,
-          });
-          </script>  
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature3 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star3">
-            <%= f.label :rate3,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate3, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star3').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate3]',
-            half: true,
-          });
-          </script>  
-        </div>
-      </div>
-      
-      <div class="item2">
-        <div class="col-lg-6">
-          <h4 class="pt-1">商品名</h4><br/>
-          <%= f.text_field :item2 %>
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature4 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star4">
-            <%= f.label :rate4,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate4, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star4').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate4]',
-            half: true,
-          });
-          </script>  
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature5 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star5">
-            <%= f.label :rate5,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate5, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star5').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate5]',
-            half: true,
-          });
-          </script>  
-
-          <h4 class="pt-1">評価項目</h4>
-          <%= f.text_field :feature6 %>
-          <!-- 評価 -->
-          <div class="form-group row d-inline" id="star6">
-            <%= f.label :rate6,'評価 ', class:' col-form-label' %>
-            <%= f.hidden_field :rate6, id: :review_star %>
-          </div>
-          <!-- 評価javascript -->
-          <script>
-          $('#star6').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'item[rate6]',
-            half: true,
-          });
-          </script>  
-        </div>
-      </div>
+    <div class="rev_ttlWrap mt-5">
+      <p class="rev_title">商品評価</p>
     </div>
-    <%= f.submit 'Submit'%>
+    
+    <div class ="rev_lists_wrap">
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">商品名</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_nameBox">
+              <%= f.text_field :item1, class: "form-control" %>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature1, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star">
+              <%= f.label :rate1,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate1, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate1]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature2, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star2">
+              <%= f.label :rate2,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate2, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star2').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate2]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature3, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star3">
+              <%= f.label :rate3,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate3, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star3').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate3]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rev_ttlWrap mt-5">
+      <p class="rev_title">商品評価</p>
+    </div>
+    
+    <div class ="rev_lists_wrap">
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">商品名</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_nameBox">
+              <%= f.text_field :item2, class: "form-control" %>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature4, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star4">
+              <%= f.label :rate4,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate4, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star4').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate4]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature5, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star5">
+              <%= f.label :rate5,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate5, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star5').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate5]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">項目</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_ftForm">
+              <%= f.text_field :feature6, class: "form-control" %>
+            </div>
+
+            <div class="rev_item_rate" id="star6">
+              <%= f.label :rate6,'評価 ', class:' col-form-label mr-3' %>
+              <%= f.hidden_field :rate6, id: :review_star %>
+            </div>
+            <!-- 評価javascript -->
+            <script>
+            $('#star6').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'item[rate6]',
+              half: true,
+            });
+            </script>  
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rev_ttlWrap mt-5">
+      <p class="rev_title">クチコミを記入</p>
+    </div>
+
+    <div class ="rev_lists_wrap">
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">クチコミのコメント</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_commentBox">
+              <div class="rev_item_commentInner">
+                <%= f.text_area :body1, class: "rev_item_commentForm", rows: "10", cols: "70", placeholder: "使ってみた感想はいかがでしたか？良い点・悪い点を挙げるとしたらどこですか？" %>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">タイトル</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_commentBox">
+              <div class="rev_item_commentInner">
+                <%= f.text_field :title, class: "rev_item_titleForm", placeholder: "タイトル" %>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="rev_lists">
+        <li class="rev_list">
+          <div class="rev_item_row">
+            <div class="rev_item_ftBox">
+              <div class="rev_item_inner">
+                <span class="rev_item_name">カテゴリー</span>
+                <span class="rev_item_icon">必須</span>
+              </div>
+            </div>
+
+            <div class="rev_item_commentBox">
+              <div class="rev_item_commentInner">
+                <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' }, class: ' rev_item_titleForm' %>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="submit">
+      <%= f.submit '投稿する', class: "btn btn-success"%>
+    </div>
   <% end %>
 </div>
