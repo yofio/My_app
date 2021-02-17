@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
 
   def show
     categoy_item = Category.find(params[:id])
-    @items = Item.where(category_id: categoy_item).order(created_at: :desc).page(params[:page]).per(20)
+    @items = Item.where(category_id: categoy_item).order(created_at: :desc).page(params[:page]).per(10)
     @microposts =  params[:search].present? ? Item.micropost_serach(params[:search]) : Item.none
     @categorys = Category.all
   end
