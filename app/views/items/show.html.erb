@@ -164,7 +164,7 @@
             <div class="item_title">
               <span><%= @item.title%></span>
             </div>
-
+            <%= image_tag @item.img.to_s, class: "mt-3 mx-auto d-block", size: "120x120" %>
             <p class="item_body">
               <%= @item.body1%>
             </p>

@@ -66,6 +66,8 @@
             }
           }
           .post_item_container {
+            width: 100%;
+            max-width: 447px;
             .item_title {
               border-bottom: 1px dotted #999;
               font-size: 100%;
@@ -76,6 +78,9 @@
                 border-left: 5px solid #001789;
                 padding: 3px 5px;
               }
+            }
+            .item_body {
+              width: 100%;
             }
           }
         }
